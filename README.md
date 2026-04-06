@@ -16,7 +16,7 @@ This paper looks at how much hospitals charge insurance companies across the ent
 
 ## Our Data:
 
-The Dataset we will use focuses on the Cost of Living in the US. This dataset was acquired from Kaggle and the original dataset contains over 30,000 different observations. “The US Family Budget Dataset provides insights into the cost of living in different US counties based on the Family Budget Calculator by the Economic Policy Institute (EPI).” We talk more about the features of this dataset in our Project Plan section.
+The [Dataset](https://www.kaggle.com/datasets/asaniczka/us-cost-of-living-dataset-3171-counties) we will use focuses on the Cost of Living in the US. This dataset was acquired from Kaggle and the original dataset contains over 30,000 different observations. “The US Family Budget Dataset provides insights into the cost of living in different US counties based on the Family Budget Calculator by the Economic Policy Institute (EPI).” We talk more about the features of this dataset in our Project Plan section.
 
 
 ## Project Plan:

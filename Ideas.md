@@ -1,1 +1,0 @@
-Go to this google doc and request edit access: https://docs.google.com/document/d/1vujAy8Nvg9fjloJ4AjCS-uFQOXBL4hNA9oOo-M7ZJy4/edit?usp=sharing
