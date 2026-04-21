@@ -50,6 +50,14 @@
 <p>This project explores why healthcare prices in the U.S. vary so dramatically across different hospitals, states, and even within the same city. Unlike groceries or gas, medical costs are not transparent or consistent—an MRI might cost thousands more at one hospital than another just a few miles away, with no clear link to quality of care.</p>
 <p>Using a dataset on family budgets across U.S. counties, the project analyzes correlations between annual healthcare costs and factors like median household income, metropolitan status, and total cost of living. The goal is to create visualizations, such as boxplots comparing healthcare costs across all 50 states and scatterplots showing relationships between income and medical expenses, to reveal patterns in pricing. Ultimately, the project aims to shed light on how much families actually pay for healthcare in different regions and whether income level predicts higher medical bills.</p>
 
+<br>
+
+<h2>Data</h2>
+<p>This dataset comes from Kaggle and is named "US Cost of Living Dataset (1877 Counties)". It provides insights into the cost of living in different US counties based on the Family Budget Calculator by the Economic Policy Institute (EPI). This dataset offers community-specific estimates for ten family types, including one or two adults with zero to four children, in all 1877 counties and metro areas across the United States.</p>
+<p>This dataset contains over 30000 observations. We sampled it to just under 4000 observations where each county has 2 observations, each with a random family type.</p>
+
+<br>
+
 <h2>Analysis</h2>
 <h3>Visualization 1:</h3>
 <iframe src="Visualizations/AvgCostLivingByState.html" width="50%" height="550px" frameborder="0"></iframe>
@@ -73,6 +81,8 @@
 <iframe src="Visualizations/AvgHealthcareStateFamilySize.html" width="50%" height="700px" frameborder="0"></iframe>
 <p>This heatmap shows how average healthcare costs vary by state and family size. Each row represents a state, and each column corresponds to a different family size category. The color intensity indicates the level of healthcare costs, with lighter shades representing lower costs and darker red shades representing higher costs. Overall, there is a clear trend that healthcare costs increase as family size grows. Smaller family sizes (on the left side of the chart) tend to have lower and more consistent costs across states. In contrast, larger family sizes (especially on the right side) show higher costs and more variation between states.</p>
 <p>Some states stand out with particularly high costs for larger families, indicated by the darkest red cells. There are also several missing or blank cells, suggesting that data may not be available for certain state and family size combinations. The variation across states becomes more pronounced as family size increases, indicating that location plays a bigger role in costs for larger households. Overall, the chart suggests that both family size and state significantly influence healthcare expenses, with larger families facing higher and more variable costs.</p>
+
+<br>
 
 <h2>Summary & Findings</h2>
 <p>This project explored how healthcare costs vary across U.S. states and counties using five interactive visualizations. The stacked bar chart revealed that healthcare consistently represents one of the largest portions of total living expenses across all states, with Washington D.C., Hawaii, and Massachusetts being the most expensive overall. The bar chart comparing metro versus non-metro counties surprisingly showed that non-metropolitan counties have higher average annual healthcare costs than metropolitan ones. However, the scatterplot comparing healthcare costs to taxes found no significant correlation between these variables, suggesting healthcare expenses fluctuate independently from other cost-of-living factors. The bubble chart revealed a weak positive relationship between median family income and healthcare costs, with metro counties showing greater variability in spending. Finally, the heatmap demonstrated that healthcare costs increase consistently with family size, and this variation becomes more pronounced across states for larger households. Taken together, these findings indicate that healthcare costs in the U.S. are not transparent or predictable—they vary independently from taxes and total living expenses, are influenced by both geography and family size, and do not consistently align with income levels or metropolitan status.</p>

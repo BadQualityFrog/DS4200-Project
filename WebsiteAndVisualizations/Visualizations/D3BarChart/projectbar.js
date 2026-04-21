@@ -9,7 +9,7 @@ let width = 600, height = 400;
 let margin = {top:50,bottom:50,left:70,right:50}
 
 let svg = d3.select('body').append('svg').attr('height', height).attr('width',width)
-.style('background','lightyellow')
+.style('background','white')
 
 let yScale = d3.scaleLinear().domain([0,15000]).range([height - margin.bottom, margin.top])
 let yAxis = svg.append('g').call(d3.axisLeft().scale(yScale)).attr('transform',`translate(${margin.left},0)`)
@@ -35,3 +35,32 @@ bar
       .on('mouseout',function(){
         d3.select(this).transition().style('fill', 'steelblue')
       })
+
+let tooltip = d3.select('body').append('div')
+  .style('position', 'absolute')
+  .style('background', 'rgba(0,0,0,0.75)')
+  .style('color', 'white')
+  .style('padding', '5px 10px')
+  .style('border-radius', '4px')
+  .style('font-size', '13px')
+  .style('pointer-events', 'none')
+  .style('opacity', 0);
+
+bar
+  .on('mouseover', function(event, d) {
+    d3.select(this).transition().style('fill', 'red');
+
+    tooltip
+      .style('opacity', 1)
+      .text('$' + d.healthcare.toFixed(2));
+  })
+  .on('mousemove', function(event) {
+    tooltip
+      .style('left', (event.pageX + 10) + 'px')
+      .style('top',  (event.pageY - 28) + 'px');
+  })
+  .on('mouseout', function() {
+    d3.select(this).transition().style('fill', 'steelblue');
+
+    tooltip.style('opacity', 0);
+  });
