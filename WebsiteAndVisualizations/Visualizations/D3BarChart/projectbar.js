@@ -26,14 +26,14 @@ let bar = svg.selectAll('rect').data(data).enter()
 .append('rect')
 .attr('x', d => xScale(d.isMetro)).attr('y', d => yScale(d.healthcare))
 .attr('width', xScale.bandwidth()).attr('height', d => height - margin.bottom - yScale(d.healthcare))
-.attr('fill', 'steelblue');
+.attr('fill', 'lightblue');
 
 bar
       .on('mouseover',function(){
-        d3.select(this).transition().style('fill', 'red')
+        d3.select(this).transition().style('fill', 'steelblue')
       })
       .on('mouseout',function(){
-        d3.select(this).transition().style('fill', 'steelblue')
+        d3.select(this).transition().style('fill', 'lightblue')
       })
 
 let tooltip = d3.select('body').append('div')
@@ -48,7 +48,7 @@ let tooltip = d3.select('body').append('div')
 
 bar
   .on('mouseover', function(event, d) {
-    d3.select(this).transition().style('fill', 'red');
+    d3.select(this).transition().style('fill', 'steelblue');
 
     tooltip
       .style('opacity', 1)
@@ -60,7 +60,7 @@ bar
       .style('top',  (event.pageY - 28) + 'px');
   })
   .on('mouseout', function() {
-    d3.select(this).transition().style('fill', 'steelblue');
+    d3.select(this).transition().style('fill', 'lightblue');
 
     tooltip.style('opacity', 0);
   });

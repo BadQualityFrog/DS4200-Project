@@ -36,6 +36,19 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       background: white;
     }
+
+    .box {
+      background: #FFF8F0;
+      border: 3px solid #e0d6cc;
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      max-width: 860px;
+      margin: 12px auto;
+      text-align: left;
+      line-height: 1.6;
+      color: #333;
+    }
+
     
   </style>
 </head>
@@ -47,45 +60,80 @@
 
 <h1>How Medical Expenses Vary Across Hospitals in the USA</h1>
 <h2>Project Description</h2>
+<div class="box">
 <p>This project explores why healthcare prices in the U.S. vary so dramatically across different hospitals, states, and even within the same city. Unlike groceries or gas, medical costs are not transparent or consistent—an MRI might cost thousands more at one hospital than another just a few miles away, with no clear link to quality of care.</p>
 <p>Using a dataset on family budgets across U.S. counties, the project analyzes correlations between annual healthcare costs and factors like median household income, metropolitan status, and total cost of living. The goal is to create visualizations, such as boxplots comparing healthcare costs across all 50 states and scatterplots showing relationships between income and medical expenses, to reveal patterns in pricing. Ultimately, the project aims to shed light on how much families actually pay for healthcare in different regions and whether income level predicts higher medical bills.</p>
+</div>
 
 <br>
 
 <h2>Data</h2>
+<div class="box">
 <p>This dataset comes from Kaggle and is named "US Cost of Living Dataset (1877 Counties)". It provides insights into the cost of living in different US counties based on the Family Budget Calculator by the Economic Policy Institute (EPI). This dataset offers community-specific estimates for ten family types, including one or two adults with zero to four children, in all 1877 counties and metro areas across the United States.</p>
 <p>This dataset contains over 30000 observations. We sampled it to just under 4000 observations where each county has 2 observations, each with a random family type.</p>
+<p>Here is the dictionary for each variable in our data: </p>
+<ul>
+  <li><strong>case-id</strong> — Unique identifier for each areaname. (type: int)</li>
+  <li><strong>state</strong> — The state where the county is located. (type: str)</li>
+  <li><strong>isMetro</strong> — Indicates whether the county is part of a metropolitan area. (type: bool)</li>
+  <li><strong>areaname</strong> — Areaname for the location. (type: str)</li>
+  <li><strong>county</strong> — Name of the county. (type: str)</li>
+  <li><strong>family_member_count</strong> — Number of family members in the household. P means parent, C means children. (type: str)</li>
+  <li><strong>housing_cost</strong> — Estimated annual cost of housing for the family type in the county. (type: float)</li>
+  <li><strong>food_cost</strong> — Estimated annual cost of food for the family type in the county. (type: float)</li>
+  <li><strong>transportation_cost</strong> — Estimated annual cost of transportation for the family type in the county. (type: float)</li>
+  <li><strong>healthcare_cost</strong> — Estimated annual cost of healthcare for the family type in the county. (type: float)</li>
+  <li><strong>other_necessities_cost</strong> — Estimated annual cost of other necessities for the family type in the county. (type: float)</li>
+  <li><strong>childcare_cost</strong> — Estimated annual cost of childcare for the family type in the county. (type: float)</li>
+  <li><strong>taxes</strong> — Estimated annual tax amount for the family type in the county. (type: float)</li>
+  <li><strong>total_cost</strong> — Total estimated annual cost of living for the family type in the county. (type: float)</li>
+  <li><strong>median_family_income</strong> — Median annual income for families in the county. (type: float)</li>
+  <li><strong>pop2026</strong> — Estimated population of the county in 2026. Note: some counties are missing this value (type: float)</li>
+</ul>
+</div>
 
 <br>
 
 <h2>Analysis</h2>
 <h3>Visualization 1:</h3>
-<iframe src="Visualizations/AvgCostLivingByState.html" width="50%" height="550px" frameborder="0"></iframe>
+<iframe src="Visualizations/AvgCostLivingByState.html" width="80%" height="850px" frameborder="0"></iframe>
+<div class="box">
 <p>This interactive stacked bar chart explains the average annual cost of living in my state, which is broken down into categories such as childcare, food, healthcare, housing, other necessities, taxes, as well as transportation. The chart also shows a significant variation with the total cost of living across states. We can see through the visualization that Washington D.C. stands out as the most expensive by a large margin, with Hawaii and Massachusetts behind in expensiveness. Furthermore, states such as Alabama, Arkansas and Missisppi are at the lower end of the spectrum when we look at the states. Across nearly all of the states we can see that healthcare cost (which is represented by the teal color), is shown to have the largest segment of the total bar which reinforces the idea that healthcare is a major burden when compared to other expenses in people’s homes. This is also seen to be regardless of geography as it is consistent throughout the country. The dropdown filter also allows users to highlight a specific cost category which makes it easier to compare the individual cost components as they vary from state to state.</p>
+</div>
 
 <h3>Visualization 2:</h3>
 <iframe src="Visualizations/D3BarChart/index.html" width="50%" height="550px" frameborder="0"></iframe>
-<p>This graph is a bar chart that compares the Average Annual Healthcare Cost of the U.S. Counties that are considered Metropoles vs Counties that are not considered Metropoles. The graph shows that non-Metropoles have on average a higher Annual Healthcare Cost. This may suggest that Healthcare is more expensive in Metropoles, or that Cost overall is higher in Metropoles. For interactivity, hovering your mouse over either bar highlights it in red, making it easy to focus on and compare the two categories at a glance.</p>
+<div class="box">
+<p>This graph is a bar chart that compares the Average Annual Healthcare Cost of the U.S. Counties that are considered Metropoles vs Counties that are not considered Metropoles. The graph shows that non-Metropoles have on average a higher Annual Healthcare Cost. This may suggest that Healthcare is more expensive in Metropoles, or that Cost overall is higher in Metropoles. For interactivity, hovering your mouse over either bar highlights it in a darker color and displays the exact average cost, making it easy to focus on one bar or compare the two categories at a glance.</p>
+</div>
 
 <h3>Visualization 3:</h3>
 <iframe src="Visualizations/HealthcareVsTax-MetroVsNonMetro.html" width="60%" height="620px" frameborder="0"></iframe>
-<p>This graph is a scatter plot which shows the relationship between Annual Healthcare Cost and Annual Tax for U.S. counties. Comparing healthcare costs to another variable such as Tax can help us determine whether or not more healthcare costs simply vary proportionately with other cost variables in a US county, or whether it varies independently. First, this graph suggests that there is not a significant correlation between annual healthcare costs and annual tax as the points vary in annual healthcare costs despite remaining in a similar annual tax range of 3,000 to 12,000. Second, there are more metropole counties with a higher annual tax than there are non-metropole counties. We suggested from the previous graph that non-metropole counties may have higher healthcare costs on average. If we compare these two graphs, it suggests that metropole counties have higher healthcare costs on average, but lower annual tax on average. This further supports the theory that Annual healthcare costs and Annual tax are not correlated, and it suggests that healthcare costs vary independently from other cost variables. For interactivity, radio buttons are provided that let you toggle between viewing only metro counties, only non-metro counties, or both together, allowing for a clearer comparison of how tax and healthcare costs differ between these two groups.</p>
+<div class="box">
+<p>This graph is a scatter plot which shows the relationship between Annual Healthcare Cost and Annual Tax for U.S. counties. Comparing healthcare costs to another variable such as Tax can help us determine whether or not more healthcare costs simply vary proportionately with other cost variables in a US county, or whether it varies independently. First, this graph seems to suggest that there is a small correlation between annual healthcare costs and annual tax as the red regression line has a positive slope. On the other hand, points vary in annual healthcare costs despite remaining in a similar annual tax range of 3,000 to 12,000. Second, there are more metropole counties with a higher annual tax than there are non-metropole counties. We suggested from the previous graph that non-metropole counties may have higher healthcare costs on average. If we compare these two graphs, it suggests that metropole counties have higher healthcare costs on average, but lower annual tax on average. This supports the theory that Annual healthcare costs and Annual tax are not very correlated despite the regression line indicating a correlation, and it suggests that healthcare costs vary independently from other cost variables. For interactivity, radio buttons are provided that let you toggle between viewing only metro counties, only non-metro counties, or both together, allowing for a clearer comparison of how tax and healthcare costs differ between these two groups.</p>
+</div>
 
 <h3>Visualization 4:</h3>
 <iframe src="Visualizations/HealthcareVsMedianIncome.html" width="50%" height="500px" frameborder="0"></iframe>
+<div class="box">
 <p>This bubble chart examines the relationship between median family income and annual healthcare costs across counties. Each point represents a county, with the size of the bubble indicating population and the color distinguishing metro (orange) from non-metro (blue) areas. Overall, there is a weak positive relationship between income and healthcare costs, as higher-income counties tend to have somewhat higher costs, but the pattern is not strong or consistent. The data points are widely scattered, showing that counties with similar income levels can have very different healthcare costs.</p>
 <p>Metro counties generally appear at higher income levels and show a wider spread in healthcare spending, suggesting more variability in urban areas. Non-metro counties are more concentrated in the lower-to-middle income range and tend to have slightly lower healthcare costs overall. There are two visible clusters of healthcare spending: one around $5,000–$10,000 and another around $13,000–$20,000, which may indicate different cost structures or access to healthcare services.</p>
 <p>Larger counties, represented by bigger bubbles, are mostly metro areas, but they do not consistently have the highest healthcare costs. This suggests that population size alone does not determine healthcare spending levels. Overall, the chart indicates that while income and metro status may influence healthcare costs, other factors likely play a significant role in explaining the variation.</p>
+</div>
 
 <h3>Visualization 5:</h3>
 <iframe src="Visualizations/AvgHealthcareStateFamilySize.html" width="50%" height="700px" frameborder="0"></iframe>
+<div class="box">
 <p>This heatmap shows how average healthcare costs vary by state and family size. Each row represents a state, and each column corresponds to a different family size category. The color intensity indicates the level of healthcare costs, with lighter shades representing lower costs and darker red shades representing higher costs. Overall, there is a clear trend that healthcare costs increase as family size grows. Smaller family sizes (on the left side of the chart) tend to have lower and more consistent costs across states. In contrast, larger family sizes (especially on the right side) show higher costs and more variation between states.</p>
 <p>Some states stand out with particularly high costs for larger families, indicated by the darkest red cells. There are also several missing or blank cells, suggesting that data may not be available for certain state and family size combinations. The variation across states becomes more pronounced as family size increases, indicating that location plays a bigger role in costs for larger households. Overall, the chart suggests that both family size and state significantly influence healthcare expenses, with larger families facing higher and more variable costs.</p>
+</div>
 
 <br>
 
 <h2>Summary & Findings</h2>
+<div class="box">
 <p>This project explored how healthcare costs vary across U.S. states and counties using five interactive visualizations. The stacked bar chart revealed that healthcare consistently represents one of the largest portions of total living expenses across all states, with Washington D.C., Hawaii, and Massachusetts being the most expensive overall. The bar chart comparing metro versus non-metro counties surprisingly showed that non-metropolitan counties have higher average annual healthcare costs than metropolitan ones. However, the scatterplot comparing healthcare costs to taxes found no significant correlation between these variables, suggesting healthcare expenses fluctuate independently from other cost-of-living factors. The bubble chart revealed a weak positive relationship between median family income and healthcare costs, with metro counties showing greater variability in spending. Finally, the heatmap demonstrated that healthcare costs increase consistently with family size, and this variation becomes more pronounced across states for larger households. Taken together, these findings indicate that healthcare costs in the U.S. are not transparent or predictable—they vary independently from taxes and total living expenses, are influenced by both geography and family size, and do not consistently align with income levels or metropolitan status.</p>
+</div>
 
 </body>
 </html>
